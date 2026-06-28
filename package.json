@@ -1,0 +1,16 @@
+{
+  "name": "circleci-lab",
+  "version": "1.0.0",
+  "description": "Minimal Node/TS app for learning CircleCI hands-on",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --reporter=default --reporter=junit --outputFile=./test-results/junit.xml",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.1.0"
+  }
+}

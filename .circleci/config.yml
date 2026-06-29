@@ -4,7 +4,7 @@ orbs:
   node: circleci/node@7.2.0
 
 jobs:
-  build-and-test: # this can be any name you choose
+  build-and-test:
     docker:
       - image: node:24
     resource_class: large
@@ -41,6 +41,8 @@ jobs:
       - run:
           name: Run tests
           command: pnpm test
+      - store_test_results:
+          path: test-results
 workflows:
   ci:
     jobs:

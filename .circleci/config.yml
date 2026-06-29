@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@7.2.0
+
 jobs:
   build-and-test: # this can be any name you choose
     docker:
@@ -29,3 +32,7 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
+workflows:
+  ci:
+    jobs:
+      - build-and-test

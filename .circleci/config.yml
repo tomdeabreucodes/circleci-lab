@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: node:24
     resource_class: large
-    parallelism: 10
+    parallelism: 2
 
     steps:
       - checkout

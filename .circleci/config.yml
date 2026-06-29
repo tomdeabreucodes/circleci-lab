@@ -42,7 +42,10 @@ jobs:
           name: Run tests
           command: pnpm test
       - store_test_results:
-          path: test-results
+          path: ./test-results
+      - store_artifacts:
+          path: ./dist
+          destination: build-output
 workflows:
   ci:
     jobs:

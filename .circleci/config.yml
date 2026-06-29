@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-test: # this can be any name you choose
     docker:
-      - image: node:18
+      - image: node:24
     resource_class: large
     parallelism: 10
 
@@ -32,6 +32,15 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - .pnpm-store
+      - run:
+          name: Lint
+          command: pnpm run lint
+      - run:
+          name: Build
+          command: pnpm run build
+      - run:
+          name: Run tests
+          command: pnpm test
 workflows:
   ci:
     jobs:
